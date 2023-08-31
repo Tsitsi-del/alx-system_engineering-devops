@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Script display conten of file /etc/passwd
+
+while IFS=: read -r user
+do
+	echo "$user | cut -f 1,3,6 -d ':'
+done < "/etc/passwd"
