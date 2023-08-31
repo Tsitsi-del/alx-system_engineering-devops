@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script displays the IP nad HTTP status code
+
+awk '{print $1 " " $9}' apache-access.log
