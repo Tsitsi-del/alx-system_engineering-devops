@@ -1,4 +1,4 @@
-#!/usr//bin/env bash
+#!/usr/bin/env bash
 #Display contents of the current directory in list format
 
 list=$(ls)
