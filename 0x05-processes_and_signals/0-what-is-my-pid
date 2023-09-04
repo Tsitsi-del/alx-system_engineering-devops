@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Scripts display its own PID
+
+echo "$$"
