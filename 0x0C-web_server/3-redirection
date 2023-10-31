@@ -2,10 +2,10 @@
 # Configure Nginx server so that it is redirecting to another page.
 # But the main domain still shows Hello world
 
-apt-get update -y && apt-get upgrade -y
-apt-get install nginx -y
-chown -R "$USER":"$USER" /var/www/html
+sudo apt-get update -y
+sudo apt-get install nginx -y
+sudo chown -R "$USER":"$USER" /var/www
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-line="\\\\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
-sed -i "48i $line" /etc/nginx/sites-available/default
+# Redirect the page 301 moved permanently
+sed -i "48i\\\tif (\$request_filename ~ redirect_me){\n\t\trewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n\t}" /etc/nginx/sites-available/default
 service nginx restart
